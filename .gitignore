@@ -1,0 +1,89 @@
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux / shell temp
+*~
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# VS Code
+.vscode/
+
+# JetBrains
+.idea/
+
+# Logs
+*.log
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+.terraform.lock.hcl
+
+# Kubernetes / Talos generated local files
+*.bak
+*.tmp
+*.old
+
+# Sensitive config files
+kubeconfig
+talosconfig
+**/kubeconfig
+**/talosconfig
+
+# Certificates / keys / secrets
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+*.csr
+*.srl
+*.kubeconfig
+secret*.yaml
+secrets*.yaml
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Helm local cache / values with secrets
+values.local.yaml
+values.secret.yaml
+values.secrets.yaml
+
+# Backup folders
+backup/
+backups/
+
+# Generated screenshots or exports if temporary
+tmp/
+dist/
+build/
