@@ -1,13 +1,16 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
 
-echo "Cluster Info"
-kubectl cluster-info
-
-echo
-echo "Nodes"
+echo "Cluster Nodes"
 kubectl get nodes -o wide
 
-echo
+echo ""
+echo "Pods"
+kubectl get pods -A
+
+echo ""
+echo "Services"
+kubectl get svc -A
+
+echo ""
 echo "Namespaces"
 kubectl get ns

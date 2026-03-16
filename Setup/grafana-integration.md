@@ -1,21 +1,57 @@
 # Grafana Integration
 
-## Goal
+Grafana is deployed on an external monitoring VM. It connects to Prometheus running inside the Kubernetes cluster.
 
-Use the existing external Grafana VM instead of relying on in-cluster Grafana.
+---
 
-## Steps Performed
+# How to add Prometheus Data Source
 
-1. exposed Rancher Prometheus via NodePort
-2. routed it through edge NGINX
-3. added DNS record `prometheus-k8s.homelab.internal`
-4. added the endpoint as a Prometheus datasource in external Grafana
+Open Grafana.
 
-## Result
+Navigate to:
 
-Grafana successfully queried Kubernetes metrics such as:
+```
+Connections
+→ Data Sources
+→ Prometheus
+```
 
-```text
-node_uname_info
-kube_node_info
-up
+Enter the endpoint:
+
+```
+<PROMETHEUS_ENDPOINT>
+```
+
+Save and test connection.
+
+---
+
+# Import Dashboards
+
+Navigate to:
+
+```
+Dashboards
+→ Import
+```
+---
+
+## Recommended dashboards:
+
+- Kubernetes Cluster Monitoring
+- Kubernetes Control Plane
+- Node Exporter
+- Cluster Capacity Planning
+
+---
+
+# Verify Metrics
+
+Open dashboard.
+
+Ensure metrics display for:
+
+- CPU usage
+- memory usage
+- pod count
+- namespace metrics

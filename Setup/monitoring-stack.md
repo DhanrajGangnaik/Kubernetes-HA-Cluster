@@ -1,24 +1,65 @@
-# Monitoring Stack
+# Monitoring Stack Deployment
 
-## Goal
+This document describes the deployment of the Kubernetes monitoring stack.
 
-Deploy Rancher Monitoring on the management cluster and expose Prometheus for use by an external Grafana VM.
+---
 
-## Components
+# Components
+
+The monitoring stack includes:
 
 - Prometheus
-- Grafana
-- kube-state-metrics
-- node-exporter
-- PushProx components
-- Prometheus adapter
+- node exporter
+- kube state metrics
+- alert manager
 
-## Resource Tuning
+These components are installed using Rancher Monitoring.
 
-Default monitoring values were reduced to fit available homelab CPU and memory.
+---
 
-## Validation
+# Installation Steps
 
-```bash
+Open Rancher UI
+
+Navigate to:
+
+```
+Cluster Management
+→ Apps & Marketplace
+→ Charts
+→ Rancher Monitoring
+```
+
+Install monitoring stack.
+
+---
+
+# Verify Installation
+
+Run:
+
+```
 kubectl get pods -n cattle-monitoring-system
-kubectl get svc -n cattle-monitoring-system
+```
+
+Expected output should show:
+
+```
+prometheus
+grafana
+alertmanager
+kube-state-metrics
+node-exporter
+```
+
+---
+
+# Prometheus Endpoint
+
+Prometheus service endpoint:
+
+```
+<PROMETHEUS_ENDPOINT>
+```
+
+This endpoint will be used by Grafana as datasource.

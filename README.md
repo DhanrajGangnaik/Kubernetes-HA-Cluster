@@ -20,12 +20,29 @@ This repository documents the end-to-end design, deployment, operations, and mon
 
 ## Cluster Overview
 
-| Node | Role | IP | Status |
-|------|------|----|--------|
-| k8s-cp1 | Control Plane | 192.168.50.11 | Active |
-| k8s-worker1 | Worker | 192.168.50.21 | Active |
-| k8s-worker2 | Worker | 192.168.50.22 | Active |
-| rancher-mgmt-1 | Rancher Management | 192.168.50.41 | Active |
+| Node | Role | Status |
+|-----|------|------|
+| control-plane-1 | Control Plane | Active |
+| control-plane-2 | Control Plane | Active |
+| control-plane-3 | Control Plane | Active |
+| worker-1 | Worker | Active |
+| worker-2 | Worker | Active |
+| worker-3 | Worker | Active |
+| worker-4 | Worker | Active |
+| worker-5 | Worker | Active |
+| worker-6 | Worker | Active |
+
+---
+
+## Management Components
+
+| Component | Purpose |
+|----------|--------|
+| Rancher Server | Kubernetes management plane |
+| Monitoring VM | External Grafana dashboards |
+| Edge Proxy | Service routing and ingress |
+
+---
 
 ## Current Capabilities
 
@@ -50,21 +67,46 @@ This repository documents the end-to-end design, deployment, operations, and mon
 
 ```text
 Users
-  │
-  ▼
-NGINX Edge Proxy
-  │
-  ├── Rancher UI
-  ├── Prometheus UI
-  ├── Grafana UI
-  └── Future platform services
-          │
-          ▼
-RKE2 Management Cluster
-  └── Rancher
-          │
-          ▼
-Talos Kubernetes Cluster
-  ├── k8s-cp1
-  ├── k8s-worker1
-  └── k8s-worker2
+│
+▼
+Edge Proxy / Ingress
+│
+├── Rancher UI
+├── Grafana UI
+├── Prometheus UI
+└── Kubernetes services
+│
+▼
+Rancher Management Plane
+│
+▼
+Talos Kubernetes HA Cluster
+├── Control Plane Nodes
+├── Worker Nodes
+├── MetalLB
+├── Ingress Controller
+├── kube-state-metrics
+└── node-exporter
+```
+
+---
+
+# Observability Model
+
+The monitoring stack uses a **hybrid architecture**.
+
+Prometheus runs **inside the Kubernetes cluster** using Rancher Monitoring.
+
+Grafana runs **outside the cluster** on a dedicated monitoring VM.
+
+```
+Grafana
+↓
+Prometheus (Rancher Monitoring)
+↓
+Kubernetes cluster
+├ node exporter
+├ kube state metrics
+└ control plane metrics
+```
+

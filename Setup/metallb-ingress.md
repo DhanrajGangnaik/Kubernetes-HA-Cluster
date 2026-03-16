@@ -8,4 +8,5 @@
 ## Sample MetalLB Range
 
 ```text
-192.168.50.230 - 192.168.50.240
+<START-IP> - <END-IP>
+```

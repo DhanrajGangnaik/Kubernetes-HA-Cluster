@@ -11,3 +11,4 @@
 ```bash
 kubectl get nodes
 talosctl health
+```
