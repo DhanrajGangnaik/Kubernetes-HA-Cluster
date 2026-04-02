@@ -65,29 +65,7 @@ This repository documents the end-to-end design, deployment, operations, and mon
 
 ## High-Level Architecture
 
-```text
-Users
-│
-▼
-Edge Proxy / Ingress
-│
-├── Rancher UI
-├── Grafana UI
-├── Prometheus UI
-└── Kubernetes services
-│
-▼
-Rancher Management Plane
-│
-▼
-Talos Kubernetes HA Cluster
-├── Control Plane Nodes
-├── Worker Nodes
-├── MetalLB
-├── Ingress Controller
-├── kube-state-metrics
-└── node-exporter
-```
+![High-Level Architecture](./Diagrams/high-level-architecture.png)
 
 ---
 
@@ -99,14 +77,5 @@ Prometheus runs **inside the Kubernetes cluster** using Rancher Monitoring.
 
 Grafana runs **outside the cluster** on a dedicated monitoring VM.
 
-```
-Grafana
-↓
-Prometheus (Rancher Monitoring)
-↓
-Kubernetes cluster
-├ node exporter
-├ kube state metrics
-└ control plane metrics
-```
+![Observability Model](./Diagrams/observability-model.png)
 

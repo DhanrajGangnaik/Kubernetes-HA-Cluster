@@ -36,3 +36,7 @@
 ## Routing Model
 
 Clients access internal services using DNS names. Requests terminate at the edge proxy, which forwards traffic to Kubernetes ingresses, NodePorts, or standalone VM services.
+
+## Diagram
+
+![Network Design](../../Diagrams/network-design.png)
