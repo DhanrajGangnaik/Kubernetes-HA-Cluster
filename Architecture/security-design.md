@@ -22,3 +22,7 @@
 - secrets management
 - network policies
 - backup encryption
+
+## Diagram
+
+![Security Design](../Diagrams/security-design.png)

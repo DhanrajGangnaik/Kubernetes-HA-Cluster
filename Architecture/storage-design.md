@@ -22,3 +22,7 @@
 - Longhorn
 - NFS-backed storage
 - backup snapshots
+
+## Diagram
+
+![Storage Design](../Diagrams/storage-design.png)

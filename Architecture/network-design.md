@@ -39,4 +39,4 @@ Clients access internal services using DNS names. Requests terminate at the edge
 
 ## Diagram
 
-![Network Design](../../Diagrams/network-design.png)
+![Network Design](./Diagrams/images/network-design.png)

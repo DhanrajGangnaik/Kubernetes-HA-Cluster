@@ -15,24 +15,6 @@ This matches the repository architecture, where service access is centralized th
 
 ---
 
-## High-Level Traffic Path
+## Traffic Path
 
-```text
-User / Admin Client
-        │
-        ▼
-Internal DNS
-        │
-        ▼
-Edge NGINX Reverse Proxy
-        │
-        ├── Rancher UI
-        ├── Grafana UI
-        ├── Prometheus UI
-        └── Kubernetes Applications
-                │
-                ▼
-      NGINX Ingress / NodePort / VM Service
-                │
-                ▼
-        Backend Workload or Platform Service
+![Availability Model](../Diagrams/images/network-flow.png)

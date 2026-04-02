@@ -19,3 +19,7 @@
 - control plane node handles cluster services
 - workers run application workloads
 - Rancher is isolated from Talos workload cluster
+
+## Diagram
+
+![Node Layout](./Diagrams/images/node-layout.png)

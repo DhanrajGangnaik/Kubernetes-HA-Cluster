@@ -59,6 +59,13 @@ Worker nodes run container workloads.
 - External Grafana as central observability UI
 - Internal DNS for stable service naming
 
+---
+
+## Diagram 
+
+![Architecture Overview](../Diagrams/architecture-overview.png)
+___
+
 ## Cluster Layers
 
 ### Management Layer
@@ -79,22 +86,10 @@ Rancher Monitoring Prometheus plus external Grafana integration.
 
 The cluster distributes nodes across multiple infrastructure hosts to prevent single point failures.
 
-```
-Infrastructure Host A
-├ control-plane-1
-├ worker-1
-└ worker-2
+## Diagram
 
-Infrastructure Host B
-├ control-plane-2
-├ worker-3
-└ worker-4
+![Availability Model](../Diagrams/availability-model.png)
 
-Infrastructure Host C
-├ control-plane-3
-├ worker-5
-└ worker-6
-```
 
 ---
 

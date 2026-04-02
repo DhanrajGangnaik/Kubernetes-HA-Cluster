@@ -32,18 +32,7 @@ The platform uses the following components:
 
 Prometheus runs **inside Kubernetes**, while Grafana runs **externally on a monitoring VM**.
 
-```
-Grafana VM
-│
-▼
-Prometheus (Rancher Monitoring)
-│
-▼
-Kubernetes Cluster
-├── node-exporter
-├── kube-state-metrics
-└── control plane metrics
-```
+![Deployment Model](../Diagrams/deployment-model.png)
 
 ---
 

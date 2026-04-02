@@ -9,11 +9,4 @@
 
 ## Current Flow
 
-```text
-Grafana VM
-   ↓
-prometheus-k8s.homelab.internal
-   ↓
-Edge Proxy
-   ↓
-Rancher Prometheus
+![Deployment Model](../Diagrams/flow.png)
